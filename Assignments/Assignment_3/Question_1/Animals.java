@@ -1,25 +1,18 @@
-package Assignments.Assignment_3;
-
-import java.util.Scanner;
+package Assignments.Assignment_3.Question_1;
 
 public class Animals {
 
 	public static void main(String[] args) {
 
-		Animals_Category animal = new Animals_Category();
+		Animals_Category category = new Animals_Category();
+
 		// TODO Auto-generated method stub
-		Scanner console = new Scanner(System.in);
 
 		System.out.println("Welcome to ANIMALS KINGDOM!");
 		System.out.println("------------------------------");
 
-		System.out.print("Enter the name of the animal: ");
-		String name = console.next();
-		 
-		animal.herbivorous(name);
-		
-		console.close();
-		
+		category.UserInput();
+		// This method will take the user input and check if the animal
+		// is herbivorous carnivorous or omnivorous.
 	}
-
 }
