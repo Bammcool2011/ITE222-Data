@@ -1,5 +1,7 @@
 package Assignments.Bonus;
 
+import java.util.Random;
+
 class Card {
 	private int cardNumber;
 	private int creditBalance;
@@ -31,10 +33,21 @@ class Card {
 		this.ticketBalance = ticketBalance;
 	}
 
-	public void playGame(int creditCost, int ticketCost) {
-		if (creditCost >= 0 && ticketCost >= 0) {
-			this.creditBalance -= creditCost;
-			this.ticketBalance += ticketCost;
+	public void substactCredits(int credits) {
+		if (this.creditBalance >= credits) {
+			this.creditBalance -= credits;
+		} else {
+			System.out.println("Insufficient credits");
+		}
+	}
+
+	public void addTickets(int tickets) {
+		this.ticketBalance += tickets;
+	}
+
+	public void playGame() {
+		if (creditBalance >= 0 && ticketBalance >= 0) {
+			System.out.println("Starting the game...");
 		} else {
 			System.out.println("Invalid amount of credits or tickets");
 		}
@@ -42,9 +55,36 @@ class Card {
 
 }
 
+class Game {
+	private int creditRequired;
+
+	Game(int creditRequired) {
+		this.creditRequired = creditRequired;
+	}
+
+	public int gameStart(Card card) {
+		if (card.getCreditBalance() >= creditRequired) {
+			Random random = new Random();
+			int ticketsWon = random.nextInt(10);
+			card.substactCredits(creditRequired);
+			card.addTickets(ticketsWon);
+			return ticketsWon;
+
+		} else {
+			System.out.println("Insufficient credits");
+			return 0;
+		}
+	}
+}
+
 public class Arcade {
 
 	public static void main(String[] args) {
+		System.out.println("Welcome to Card Arcade game");
+
+		System.out.println("Players Details: ");
+		Card c01 = new Card(1, 0, 0);
+		Card c02 = new Card(2, 100, 0);
 
 	}
 
