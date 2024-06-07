@@ -23,22 +23,23 @@ class Card {
 		return ticketBalance;
 	}
 
-	public void addTickets(int tickets) {
-		if (tickets >= 0) {
-			this.ticketBalance += tickets;
+	public void setCreditBalance(int creditBalance) {
+		this.creditBalance = creditBalance;
+	}
+
+	public void setTicketBalance(int ticketBalance) {
+		this.ticketBalance = ticketBalance;
+	}
+
+	public void playGame(int creditCost, int ticketCost) {
+		if (creditCost >= 0 && ticketCost >= 0) {
+			this.creditBalance -= creditCost;
+			this.ticketBalance += ticketCost;
 		} else {
-			System.out.println("Invalid amount of tickets to add");
+			System.out.println("Invalid amount of credits or tickets");
 		}
 	}
 
-	public void exchangeTickets(int tickets) {
-		if (tickets >= 0) {
-			this.ticketBalance -= tickets;
-			this.creditBalance += tickets;
-		} else {
-			System.out.println("Invalid amount of tickets to exchange");
-		}
-	}
 }
 
 public class Arcade {
