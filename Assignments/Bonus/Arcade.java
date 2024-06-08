@@ -97,6 +97,7 @@ class Game {
 
 // -- Prize class for redeeming prizes -- //
 class Prize {
+	public static Object prize;
 	private String name;
 	private int ticketsRequired;
 
@@ -113,7 +114,6 @@ class Prize {
 		if (card.getTicketBalance() >= ticketsRequired) {
 			card.setTicketBalance(card.getTicketBalance() - ticketsRequired);
 			System.out.println("Prize Redeemed: " + name);
-			System.out.println("Remaining prizes: " + name);
 			return true;
 		} else {
 			System.out.println("Insufficient tickets or prizes are out of stock");
@@ -136,6 +136,8 @@ class Terminal {
 		System.out.println("Added " + creditsToAdd + " credits to the card " + card.getCardNumber());
 	}
 
+	// -- Method for playing games with the card -- //
+	// -- so when the game is played, the tickets won are displayed (from `random` in Game class) -- //
 	public void playGameWithCard(Game game, Card card) {
 		int ticketsWon = game.gameStart(card);
 		System.out.println(">> Tickets won by Card " + card.getCardNumber() + ": " + ticketsWon);
@@ -148,10 +150,10 @@ public class Arcade {
 		System.out.println("  Welcome to Card Arcade game");
 		System.out.println("===============================");
 
-		Card c01 = new Card(1, 20, 0);
-		Card c02 = new Card(2, 10, 0);
+		Card c01 = new Card(1, 0, 0);
+		Card c02 = new Card(2, 0, 0);
 
-		Game game = new Game(5);
+		Game game = new Game(10);
 		// Prizes: Candy using 5 tickets, Toy using 10 tickets, Book using 30 tickets
 		Prize[] prizes = { new Prize("Candy", 5), new Prize("Toy", 10), new Prize("Book", 30) };
 
@@ -185,7 +187,9 @@ public class Arcade {
 		System.out.println("\n===============================");
 		System.out.println("\nAttempting to play a game and redeem a prize using Card 1:");
 		terminal.playGameWithCard(game, c01);
-		prizes[0].redeemPrize(c01);
+		for (Prize prize : prizes) {
+			   prize.redeemPrize(c01);
+			}
 
 		// Additional tests
 		System.out.println("\n===============================");
