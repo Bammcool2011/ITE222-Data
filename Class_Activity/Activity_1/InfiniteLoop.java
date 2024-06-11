@@ -1,4 +1,4 @@
-package Activity_1;
+package Class_Activity.Activity_1;
 
 public class InfiniteLoop {
 
