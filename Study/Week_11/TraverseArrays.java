@@ -5,6 +5,8 @@ public class TraverseArrays {
 		// -- Declare an array of integers -- //
 		int[] numbers = { 10, 20, 30, 40, 50 };
 
+		System.out.println("Example 1");
+
 		// -- For loop to traverse the array -- //
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.println(numbers[i]); // It will print all the elements of the array
