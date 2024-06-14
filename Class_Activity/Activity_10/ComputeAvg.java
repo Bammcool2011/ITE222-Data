@@ -14,7 +14,7 @@ public class ComputeAvg {
 			scores[i] = scanner.nextDouble(); // Get the test score
 		}
 
-		double average = 0;
+		double average = 0; // Assign 0 fisrt because we are going to add all the test scores
 		for (double score : scores) {
 			average = average + score; // Sum of all the test scores
 		}
