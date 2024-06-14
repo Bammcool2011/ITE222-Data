@@ -9,11 +9,11 @@ public class ArrayEx2 {
 		browsers[2] = "opera";
 		browsers[3] = "firefox";
 
-		System.out.println("size of array" + browsers.length);
+		System.out.println("size of array: " + browsers.length);
 
 		// Use for-each loop to display the contents of the array
 		for (String browser : browsers) {
-			System.out.println(browser);
+			System.out.println("The name of browsers: " + browser);
 		}
 	}
 }
